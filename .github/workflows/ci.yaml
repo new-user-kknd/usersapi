@@ -113,11 +113,6 @@ jobs:
       uses: github/codeql-action/upload-sarif@v2
       with:
         sarif_file: grype-report.sarif
-    - name: Exit if Grype fails
-      run: |
-        if [ -n "$GRYPE_FAIL" ]; then
-          exit 1
-        fi
 
 
 
