@@ -116,7 +116,7 @@ jobs:
         sarif_file: grype-report.sarif
   
   scan-helm:
-    needs: lint-and-test,docker-build
+      needs: lint-and-test,docker-build
     runs-on: ubuntu-latest
 
     steps: 
