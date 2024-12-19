@@ -8,6 +8,7 @@ on:
 
 env:
   COMPONENT: users-api
+  POSTGRES_HOST: postgres
 
 jobs:
   lint-and-test:
