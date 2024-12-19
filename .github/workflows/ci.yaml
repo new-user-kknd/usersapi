@@ -107,12 +107,17 @@ jobs:
 
     - name: Scan image with Grype
       run: |
-         grype ${{env.COMPONENT}}:latest --fail-on medium -o sarif > grype-report.sarif
+         grype ${{env.COMPONENT}}:latest --fail-on medium -o sarif > grype-report.sarif  || echo "GRYPE_FAIL=true" >> "$GITHUB_ENV"
     
     - name: Upload Grype scan results to Github Code Scanning
       uses: github/codeql-action/upload-sarif@v2
       with:
-        sarif_file: grype-report.sarif     
+        sarif_file: grype-report.sarif
+    - name: Exit if Grype fails
+      run: |
+        if [ -n "$GRYPE_FAIL" ]; then
+          exit 1
+        fi
 
 
 
