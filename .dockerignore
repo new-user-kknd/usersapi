@@ -1,0 +1,38 @@
+# Version Control
+.git
+.gitignore
+
+# Environment
+.env
+venv/
+env/
+*.env
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Testing
+.pytest_cache/
+.nose_cache/
+tests/
+*.test.py
+test_*.py
+
+# Logs
+*.log
+
+# Local Development
+*.db
+*.sqlite3
+
+# IDE specific
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Misc
+.DS_Store
