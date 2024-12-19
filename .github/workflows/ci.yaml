@@ -42,7 +42,7 @@ jobs:
       run: pylint **/*.py || true  # Allow non-zero exit to not fail the workflow
 
     - name: Run Tests
-      run: nosetests tests.py
+      run: python -m nose tests.py
 
   docker-build:
     needs: lint-and-test
