@@ -29,6 +29,9 @@ jobs:
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
+        ports:
+          # Maps tcp port 5432 on service container to the host
+          - 5432:5432
     
     steps:
     - name: Checkout code
@@ -60,6 +63,11 @@ jobs:
 
     - name: Run Tests
       run: python -m nose tests.py
+      env:
+      # The hostname used to communicate with the PostgreSQL service container
+        POSTGRES_HOST: localhost
+      # The default PostgreSQL port
+        POSTGRES_PORT: 5432
 
   docker-build:
     needs: lint-and-test
